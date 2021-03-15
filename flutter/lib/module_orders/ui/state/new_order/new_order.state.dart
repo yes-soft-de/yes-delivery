@@ -625,39 +625,37 @@ class NewOrderStateBranchesLoaded extends NewOrderState {
                       ? Colors.grey[900]
                       : Color.fromRGBO(236, 239, 241, 1),
           ),
-          child: Padding(
-            padding: const EdgeInsets.only(left: 16.0, right: 16),
-            child: DropdownButtonFormField(
-                icon: Icon(
-                  Icons.arrow_drop_down_circle,
-                  color: Theme.of(context).primaryColor,
-                ),
-                decoration: InputDecoration(
-                  enabledBorder:InputBorder.none,
-                  fillColor:  Theme.of(context).brightness == Brightness.dark
-                      ? Colors.grey[900]
-                      : Color.fromRGBO(236, 239, 241, 1),
-                  focusColor:  Theme.of(context).brightness == Brightness.dark
-                      ? Colors.grey[900]
-                      : Color.fromRGBO(236, 239, 241, 1),
-                  hintText: S.of(context).branch,
-                  hintStyle: TextStyle(),
-                ),
-                items: branches
-                    .map((e) => DropdownMenuItem<Branch>(
-                          value: e,
-                          child: Text(
-                            '${S.of(context).branch} ${e.brancheName}',
-                            style: TextStyle(
-                            
-                            ),
+          child: DropdownButtonFormField(
+              icon: Icon(
+                Icons.arrow_drop_down_circle,
+                color: Theme.of(context).primaryColor,
+              ),
+              decoration: InputDecoration(
+                enabledBorder:InputBorder.none,
+                contentPadding:EdgeInsets.only(top:8,bottom: 8,left: 16,right: 16),
+                fillColor:  Theme.of(context).brightness == Brightness.dark
+                    ? Colors.grey[900]
+                    : Color.fromRGBO(236, 239, 241, 1),
+                focusColor:  Theme.of(context).brightness == Brightness.dark
+                    ? Colors.grey[900]
+                    : Color.fromRGBO(236, 239, 241, 1),
+                hintText: S.of(context).branch,
+                hintStyle: TextStyle(),
+              ),
+              items: branches
+                  .map((e) => DropdownMenuItem<Branch>(
+                        value: e,
+                        child: Text(
+                          '${S.of(context).branch} ${e.brancheName}',
+                          style: TextStyle(
+                          
                           ),
-                        ))
-                    .toList(),
-                onChanged: (val) {
-                  activeBranch = val;
-                }),
-          ),
+                        ),
+                      ))
+                  .toList(),
+              onChanged: (val) {
+                activeBranch = val;
+              }),
         ),
       );
     }
